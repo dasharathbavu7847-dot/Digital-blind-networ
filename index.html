@@ -1,0 +1,38 @@
+
+<!-- Digital Blind Network Welcome Greeting -->
+<div id="welcomeGreeting" role="status" aria-live="polite">
+  Welcome to Digital Blind Network!
+</div>
+
+<script>
+(function () {
+  const hour = new Date().getHours();
+  let greeting;
+
+  if (hour >= 5 && hour < 12) {
+    greeting = "Good morning";
+  } else if (hour >= 12 && hour < 17) {
+    greeting = "Good afternoon";
+  } else if (hour >= 17 && hour < 21) {
+    greeting = "Good evening";
+  } else {
+    greeting = "Good night";
+  }
+
+  const message =
+    greeting + "! Welcome to Digital Blind Network.";
+
+  document.getElementById("welcomeGreeting")
+    .textContent = message;
+
+  window.addEventListener("load", function () {
+    setTimeout(function () {
+      if ("speechSynthesis" in window) {
+        speechSynthesis.speak(
+          new SpeechSynthesisUtterance(message)
+        );
+      }
+    }, 900);
+  });
+})();
+</script>
