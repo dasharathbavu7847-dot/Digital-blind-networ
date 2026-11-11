@@ -1,0 +1,293 @@
+
+/* ==========================================
+   DIGITAL BLIND NETWORK
+   Modern Accessible Digital Website
+   ========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #07111f;
+    color: #ffffff;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+/* ==========================================
+   HEADER
+   ========================================== */
+
+header {
+    background: linear-gradient(135deg, #061b36, #0057b8, #00b4d8);
+    color: #ffffff;
+    text-align: center;
+    padding: 55px 20px;
+    border-bottom: 4px solid #00e5ff;
+}
+
+header h1 {
+    font-size: clamp(30px, 6vw, 48px);
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+header p {
+    font-size: 21px;
+    color: #e4f7ff;
+}
+
+/* ==========================================
+   NAVIGATION
+   ========================================== */
+
+nav {
+    background: #101f35;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 18px;
+    border-bottom: 1px solid #284568;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 22px;
+    border-radius: 10px;
+    background: #17365e;
+    border: 1px solid #3988ff;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    background: #00a8ff;
+    color: #06111f;
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   MAIN CONTENT
+   ========================================== */
+
+main {
+    width: 100%;
+    max-width: 1150px;
+    margin: auto;
+    padding: 25px 18px;
+}
+
+section {
+    background: linear-gradient(145deg, #10233d, #0b1729);
+    padding: 35px;
+    margin: 30px 0;
+    border-radius: 18px;
+    border: 1px solid #254b78;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+section h2 {
+    color: #00e5ff;
+    font-size: 30px;
+    margin-bottom: 22px;
+    border-bottom: 2px solid #245b91;
+    padding-bottom: 12px;
+}
+
+section h3 {
+    color: #7dd3fc;
+    font-size: 23px;
+    margin-bottom: 12px;
+}
+
+section p {
+    margin-bottom: 18px;
+    color: #e4edff;
+}
+
+/* ==========================================
+   DIGITAL TOOLS
+   ========================================== */
+
+#tools article {
+    background: #142b49;
+    padding: 22px;
+    margin: 18px 0;
+    border-radius: 12px;
+    border-left: 5px solid #00d4ff;
+    transition: 0.3s ease;
+}
+
+#tools article:hover {
+    background: #1c3b61;
+    transform: translateX(5px);
+}
+
+/* ==========================================
+   COMMUNITY LINKS
+   ========================================== */
+
+#community ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+#community li {
+    margin: 18px 0;
+}
+
+#community a {
+    display: block;
+    background: linear-gradient(90deg, #0756b8, #008bd6);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: bold;
+    padding: 17px 22px;
+    border-radius: 12px;
+    border: 1px solid #55cfff;
+    transition: 0.3s ease;
+}
+
+#community a:hover {
+    background: #00e5ff;
+    color: #001525;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 229, 255, 0.2);
+}
+
+/* ==========================================
+   DEVELOPERS
+   ========================================== */
+
+#developers {
+    background: linear-gradient(145deg, #142d4c, #08182b);
+}
+
+#developers p strong {
+    color: #00e5ff;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+footer {
+    background: linear-gradient(135deg, #06101f, #102b4c);
+    text-align: center;
+    padding: 45px 20px;
+    border-top: 3px solid #00e5ff;
+}
+
+footer h2 {
+    color: #00e5ff;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+footer p {
+    color: #e1edff;
+    margin: 12px 0;
+}
+
+/* ==========================================
+   ACCESSIBILITY
+   ========================================== */
+
+a {
+    outline-offset: 5px;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 4px solid #ffeb3b;
+    outline-offset: 5px;
+}
+
+section,
+article {
+    scroll-margin-top: 100px;
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 768px) {
+
+    body {
+        font-size: 18px;
+    }
+
+    header {
+        padding: 40px 15px;
+    }
+
+    header p {
+        font-size: 19px;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px;
+    }
+
+    nav a {
+        text-align: center;
+        padding: 15px;
+    }
+
+    main {
+        padding: 12px;
+    }
+
+    section {
+        padding: 23px 18px;
+        margin: 20px 0;
+    }
+
+    section h2 {
+        font-size: 26px;
+    }
+
+    section h3 {
+        font-size: 21px;
+    }
+
+    #community a {
+        font-size: 18px;
+        padding: 17px;
+    }
+
+    footer {
+        padding: 35px 15px;
+    }
+}
+
+/* ==========================================
+   REDUCED MOTION ACCESSIBILITY
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+    }
+}
