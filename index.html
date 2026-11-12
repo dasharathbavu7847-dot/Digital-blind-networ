@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Digital Blind Network</title>
+
+    <meta name="description"
+          content="Digital Blind Network - Accessible digital tools for blind and visually impaired users.">
+
+    <meta name="theme-color" content="#101828">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<a href="#mainContent" class="skip-link">
+    Skip to Main Content
+</a>
+
+<header class="site-header">
+
+    <div class="brand">
+        <h1>Digital Blind Network</h1>
+        <p>Accessible Digital Tools for Everyone</p>
+    </div>
+
+    <nav aria-label="Main Navigation">
+
+        <button type="button"
+                class="nav-button active"
+                data-page="home"
+                aria-current="page">
+            Home
+        </button>
+
+        <button type="button"
+                class="nav-button"
+                data-page="about">
+            About
+        </button>
+
+    </nav>
+
+</header>
+
+<main id="mainContent">
+
+    <!-- HOME PAGE -->
+
+    <section id="home" class="page">
+
+        <section class="welcome-section">
+
+            <h2 id="welcomeMessage">
+                Welcome to Digital Blind Network
+            </h2>
+
+            <p>
+                Your Accessible Digital Platform
+            </p>
+
+        </section>
+
+        <!-- TEXT TO TXT -->
+
+        <section class="tool-card">
+
+            <h2>Text to TXT File</h2>
+
+            <label for="txtInput">
+                Enter or Paste Your Text
+            </label>
+
+            <textarea id="txtInput"
+                      rows="8"
+                      placeholder="Write your text here..."></textarea>
+
+            <label for="txtFilename">
+                File Name
+            </label>
+
+            <input type="text"
+                   id="txtFilename"
+                   value="my-text">
+
+            <button type="button"
+                    id="downloadTxt"
+                    class="primary-button">
+                Download TXT File
+            </button>
+
+        </section>
+
+        <!-- IMAGE RESIZER -->
+
+        <section class="tool-card">
+
+            <h2>Image Resizer</h2>
+
+            <label for="resizeImageFile">
+                Select Image
+            </label>
+
+            <input type="file"
+                   id="resizeImageFile"
+                   accept="image/*">
+
+            <div id="resizeImagePreview"></div>
+
+            <label for="resizeWidth">
+                Image Width
+            </label>
+
+            <input type="number"
+                   id="resizeWidth"
+                   min="1"
+                   placeholder="Enter width">
+
+            <label for="resizeHeight">
+                Image Height
+            </label>
+
+            <input type="number"
+                   id="resizeHeight"
+                   min="1"
+                   placeholder="Enter height">
+
+            <label for="resizeFormat">
+                Output Format
+            </label>
+
+            <select id="resizeFormat">
+                <option value="image/png">PNG</option>
+                <option value="image/jpeg">JPG</option>
+                <option value="image/webp">WEBP</option>
+            </select>
+
+            <button type="button"
+                    id="resizeImage"
+                    class="primary-button">
+                Resize Image
+            </button>
+
+            <p id="resizeInfo" aria-live="polite"></p>
+
+            <a id="resizeDownload"
+               class="download-link"
+               hidden>
+                Download Resized Image
+            </a>
+
+        </section>
+
+        <!-- IMAGE REDUCER -->
+
+        <section class="tool-card">
+
+            <h2>Image Reduce</h2>
+
+            <label for="imageFile">
+                Select Image
+            </label>
+
+            <input type="file"
+                   id="imageFile"
+                   accept="image/*">
+
+            <div id="imagePreview"></div>
+
+            <label for="imageFormat">
+                Output Format
+            </label>
+
+            <select id="imageFormat">
+                <option value="image/jpeg">JPG</option>
+                <option value="image/png">PNG</option>
+                <option value="image/webp">WEBP</option>
+            </select>
+
+            <label for="imageQuality">
+                Image Quality
+            </label>
+
+            <input type="range"
+                   id="imageQuality"
+                   min="10"
+                   max="100"
+                   value="70">
+
+            <p>
+                Quality:
+                <span id="qualityValue">70</span>%
+            </p>
+
+            <label for="imageMaxWidth">
+                Maximum Image Width
+            </label>
+
+            <input type="number"
+                   id="imageMaxWidth"
+                   min="1"
+                   value="1200">
+
+            <button type="button"
+                    id="reduceImage"
+                    class="primary-button">
+                Reduce Image Size
+            </button>
+
+            <p id="imageSizeInfo" aria-live="polite"></p>
+
+            <a id="imageDownload"
+               class="download-link"
+               hidden>
+                Download Reduced Image
+            </a>
+
+        </section>
+
+        <!-- AUDIO EDITOR -->
+
+        <section class="tool-card">
+
+            <h2>Audio Editing</h2>
+
+            <label for="audioFile">
+                Upload Audio File
+            </label>
+
+            <input type="file"
+                   id="audioFile"
+                   accept="audio/*">
+
+            <audio id="audioPreview"
+                   controls
+                   preload="metadata"></audio>
+
+            <label for="audioStart">
+                Start Time in Seconds
+            </label>
+
+            <input type="number"
+                   id="audioStart"
+                   min="0"
+                   value="0">
+
+            <label for="audioEnd">
+                End Time in Seconds
+            </label>
+
+            <input type="number"
+                   id="audioEnd"
+                   min="0"
+                   value="10">
+
+            <button type="button"
+                    id="trimAudio"
+                    class="primary-button">
+                Trim and Export Audio
+            </button>
+
+            <a id="audioDownload"
+               class="download-link"
+               hidden>
+                Download Edited Audio
+            </a>
+
+        </section>
+
+        <!-- VIDEO EDITOR -->
+
+        <section class="tool-card">
+
+            <h2>Video Editing</h2>
+
+            <label for="videoFile">
+                Upload Video File
+            </label>
+
+            <input type="file"
+                   id="videoFile"
+                   accept="video/*">
+
+            <video id="videoPreview"
+                   controls
+                   preload="metadata"></video>
+
+            <div class="video-controls">
+
+                <button type="button"
+                        id="rewindVideo"
+                        class="secondary-button">
+                    Rewind 10 Seconds
+                </button>
+
+                <button type="button"
+                        id="forwardVideo"
+                        class="secondary-button">
+                    Forward 10 Seconds
+                </button>
+
+            </div>
+
+            <label for="videoStart">
+                Start Time in Seconds
+            </label>
+
+            <input type="number"
+                   id="videoStart"
+                   min="0"
+                   value="0">
+
+            <label for="videoEnd">
+                End Time in Seconds
+            </label>
+
+            <input type="number"
+                   id="videoEnd"
+                   min="0"
+                   value="10">
+
+            <button type="button"
+                    id="trimVideo"
+                    class="primary-button">
+                Trim and Export Video
+            </button>
+
+            <a id="videoDownload"
+               class="download-link"
+               hidden>
+                Download Edited Video
+            </a>
+
+        </section>
+
+    </section>
+
+    <!-- ABOUT PAGE -->
+
+    <section id="about"
+             class="page"
+             hidden>
+
+        <section class="tool-card">
+
+            <h2>About Digital Blind Network</h2>
+
+            <p>
+                Digital Blind Network is an accessible digital
+                platform designed to help blind and visually
+                impaired users access useful digital tools.
+            </p>
+
+            <p>
+                Our goal is to make technology more accessible,
+                useful, and convenient for everyone.
+            </p>
+
+        </section>
+
+        <!-- HELP MENU -->
+
+        <section class="tool-card">
+
+            <h2>Help Menu</h2>
+
+            <details>
+                <summary>Text to TXT File Help</summary>
+                <p>
+                    Enter or paste your text, choose a file name,
+                    and select Download TXT File.
+                </p>
+            </details>
+
+            <details>
+                <summary>Image Resizer Help</summary>
+                <p>
+                    Select an image, enter the desired width
+                    and height, choose a format, and resize it.
+                </p>
+            </details>
+
+            <details>
+                <summary>Image Reduce Help</summary>
+                <p>
+                    Select an image, adjust image quality,
+                    choose maximum width, and reduce its size.
+                </p>
+            </details>
+
+            <details>
+                <summary>Audio Editing Help</summary>
+                <p>
+                    Upload audio, enter start and end times
+                    in seconds, and trim the selected audio.
+                </p>
+            </details>
+
+            <details>
+                <summary>Video Editing Help</summary>
+                <p>
+                    Upload video, use rewind or forward controls,
+                    enter start and end times, and export the
+                    selected video section.
+                </p>
+            </details>
+
+        </section>
+
+        <!-- DEVELOPER INFORMATION -->
+
+        <section class="tool-card">
+
+            <h2>Developer Information</h2>
+
+            <p>
+                <strong>Developer:</strong>
+                Dashrath Babu
+            </p>
+
+            <p>
+                <strong>Junior Developer:</strong>
+                Umakant Das
+            </p>
+
+        </section>
+
+        <!-- COMMUNITY LINKS -->
+
+        <section class="tool-card">
+
+            <h2>Join Our Community</h2>
+
+            <p>
+                Connect with our community and stay updated.
+            </p>
+
+            <p>
+                <a href="https://discord.gg/fuqvfDhJk"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Join Discord
+                </a>
+            </p>
+
+            <p>
+                <a href="https://chat.whatsapp.com/ILZQ9pGR1za6MIpDCizyN1?s=cl&amp;p=a&amp;iam=2"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Join WhatsApp Group
+                </a>
+            </p>
+
+            <p>
+                <a href="https://www.youtube.com/@anysolutionofblindpeople"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Watch YouTube Channel
+                </a>
+            </p>
+
+        </section>
+
+        <!-- THANK YOU -->
+
+        <section class="tool-card">
+
+            <h2>Thank You!</h2>
+
+            <p>
+                Thank you for visiting Digital Blind Network.
+            </p>
+
+            <p>
+                We appreciate your support and hope
+                you enjoy using our accessible tools.
+            </p>
+
+        </section>
+
+    </section>
+
+</main>
+
+<footer class="site-footer">
+
+    <p>
+        Copyright &copy;
+        <span id="year"></span>
+        Digital Blind Network
+    </p>
+
+    <p>
+        Accessible Technology for Everyone
+    </p>
+
+</footer>
+
+<div id="status"
+     class="status-message"
+     role="status"
+     aria-live="polite"
+     aria-atomic="true"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
