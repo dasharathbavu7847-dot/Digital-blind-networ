@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Digital Blind Network - Accessible Digital Tools for Blind Users">
+<title>Digital Blind Network</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<h1>Digital Blind Network</h1>
+<p>Accessible Digital Tools for Blind Users</p>
+</header>
+
+<main>
+
+<!-- CREATE ACCOUNT -->
+<section id="registerPage" class="page">
+<h2>Create Account</h2>
+
+<form id="registerForm">
+
+<label for="fullName">Name</label>
+<input id="fullName" type="text" autocomplete="name" required>
+
+<label for="username">Username</label>
+<input id="username" type="text" autocomplete="username" required>
+
+<label for="email">Email Address</label>
+<input id="email" type="email" autocomplete="email" required>
+
+<label for="password">Create Password</label>
+<input id="password" type="password" autocomplete="new-password" required>
+
+<label for="confirmPassword">Confirm Password</label>
+<input id="confirmPassword" type="password" autocomplete="new-password" required>
+
+<fieldset>
+<legend>Accessibility CAPTCHA</legend>
+<p id="captchaQuestion">What is 9 plus 10?</p>
+<label for="captchaAnswer">Enter CAPTCHA Answer</label>
+<input id="captchaAnswer" type="number" inputmode="numeric" required>
+<p>Answer the math question to continue.</p>
+</fieldset>
+
+<label for="privacyPolicy">
+<input id="privacyPolicy" type="checkbox" required>
+I agree to the Privacy Policy.
+</label>
+
+<button type="submit">Create My Account</button>
+<p id="registerStatus" role="status" aria-live="polite"></p>
+</form>
+
+<button type="button" data-page="login">Already have an account? Login</button>
+</section>
+
+<!-- LOGIN -->
+<section id="loginPage" class="page" hidden>
+<h2>Login</h2>
+
+<form id="loginForm">
+<label for="loginUsername">Username or Email</label>
+<input id="loginUsername" type="text" autocomplete="username" required>
+
+<label for="loginPassword">Password</label>
+<input id="loginPassword" type="password" autocomplete="current-password" required>
+
+<button type="submit">Login</button>
+<p id="loginStatus" role="status" aria-live="polite"></p>
+</form>
+
+<button type="button" data-page="register">Create New Account</button>
+</section>
+
+<!-- NAVIGATION -->
+<nav id="mainNavigation" aria-label="Main Navigation" hidden>
+<button class="nav-button" type="button" data-page="home">Home</button>
+<button class="nav-button" type="button" data-page="tools">Tool</button>
+<button class="nav-button" type="button" data-page="about">About</button>
+<button id="logoutButton" type="button">Logout</button>
+</nav>
+
+<!-- HOME -->
+<section id="homePage" class="page" hidden>
+<h2>Home</h2>
+
+<section>
+<h3>User Profile</h3>
+<p>Name: <span id="profileName">User</span></p>
+<p>Username: <span id="profileUsername">Username</span></p>
+<p>Email: <span id="profileEmail">Email</span></p>
+</section>
+
+<h3 id="welcomeMessage">Welcome to Digital Blind Network</h3>
+<p>Accessible digital tools for blind users.</p>
+</section>
+
+<!-- TOOLS -->
+<section id="toolsPage" class="page" hidden>
+<h2>Tools</h2>
+
+<!-- IMAGE TOOL -->
+<section class="tool-section" id="imageTool">
+<h3>Image Tool</h3>
+
+<h4>Image Resizer</h4>
+<label for="resizeImageFile">Select Image</label>
+<input id="resizeImageFile" type="file" accept="image/*">
+<img id="resizeImagePreview" alt="Image Preview" hidden>
+
+<label for="resizeWidth">Width</label>
+<input id="resizeWidth" type="number" min="1">
+
+<label for="resizeHeight">Height</label>
+<input id="resizeHeight" type="number" min="1">
+
+<label for="resizeFormat">Format</label>
+<select id="resizeFormat">
+<option value="image/png">PNG</option>
+<option value="image/jpeg">JPEG</option>
+<option value="image/webp">WEBP</option>
+</select>
+
+<button id="resizeImage" type="button">Resize Image</button>
+<p id="resizeInfo" role="status"></p>
+<a id="resizeDownload" hidden download="resized-image">Download Resized Image</a>
+
+<hr>
+
+<h4>Image Reduce</h4>
+<label for="imageFile">Select Image</label>
+<input id="imageFile" type="file" accept="image/*">
+<img id="imagePreview" alt="Image Preview" hidden>
+
+<label for="imageFormat">Format</label>
+<select id="imageFormat">
+<option value="image/jpeg">JPEG</option>
+<option value="image/webp">WEBP</option>
+<option value="image/png">PNG</option>
+</select>
+
+<label for="imageQuality">Image Quality</label>
+<input id="imageQuality" type="range" min="10" max="100" value="80">
+<output id="qualityValue">80</output>
+
+<label for="imageMaxWidth">Maximum Width</label>
+<input id="imageMaxWidth" type="number" min="1" value="1200">
+
+<button id="reduceImage" type="button">Reduce Image</button>
+<p id="imageSizeInfo" role="status"></p>
+<a id="imageDownload" hidden download="reduced-image">Download Reduced Image</a>
+</section>
+
+<!-- AUDIO TOOL -->
+<section class="tool-section" id="audioTool">
+<h3>Audio Tool</h3>
+
+<h4>Audio Editor</h4>
+<label for="audioFile">Select Audio</label>
+<input id="audioFile" type="file" accept="audio/*">
+<audio id="audioPreview" controls></audio>
+
+<label for="audioStart">Start Time (Seconds)</label>
+<input id="audioStart" type="number" min="0" value="0">
+
+<label for="audioEnd">End Time (Seconds)</label>
+<input id="audioEnd" type="number" min="0">
+
+<button id="trimAudio" type="button">Trim Audio</button>
+<a id="audioDownload" hidden download="trimmed-audio">Download Trimmed Audio</a>
+
+<hr>
+
+<h4>Vocal Remover Tool</h4>
+<button id="removeVocal" type="button">Remove Vocal</button>
+<button id="removeMaleVocal" type="button">Male Vocal Remove</button>
+<button id="removeFemaleVocal" type="button">Female Vocal Remove</button>
+<button id="removeLeftChannel" type="button">Remove Left Channel</button>
+<button id="removeRightChannel" type="button">Remove Right Channel</button>
+<button id="removeInstrumental" type="button">Remove Instrumental</button>
+<button id="separateVoice" type="button">Separate Voice</button>
+
+<label for="voiceType">Voice Type</label>
+<select id="voiceType">
+<option value="male">Male</option>
+<option value="female">Female</option>
+</select>
+
+<button id="playVocalPreview" type="button">Play Vocal Preview</button>
+<button id="pauseVocalPreview" type="button">Pause Vocal Preview</button>
+
+<a id="instrumentalDownload" hidden download="instrumental">Download Instrumental</a>
+<a id="vocalDownload" hidden download="vocal">Download Vocal</a>
+<a id="voiceDownload" hidden download="separated-voice">Download Separated Voice</a>
+
+<p id="audioToolStatus" role="status" aria-live="polite"></p>
+</section>
+
+<!-- VIDEO TOOL -->
+<section class="tool-section" id="videoTool">
+<h3>Video Tool</h3>
+
+<h4>Video Editor</h4>
+<label for="videoFile">Select Video</label>
+<input id="videoFile" type="file" accept="video/*">
+<video id="videoPreview" controls></video>
+
+<button id="rewindVideo" type="button">Rewind 10 Seconds</button>
+<button id="forwardVideo" type="button">Forward 10 Seconds</button>
+
+<label for="videoStart">Start Time (Seconds)</label>
+<input id="videoStart" type="number" min="0" value="0">
+
+<label for="videoEnd">End Time (Seconds)</label>
+<input id="videoEnd" type="number" min="0">
+
+<button id="trimVideo" type="button">Trim Video</button>
+<a id="videoDownload" hidden download="trimmed-video">Download Trimmed Video</a>
+
+<p id="videoToolStatus" role="status" aria-live="polite"></p>
+</section>
+
+<!-- TXT TOOL -->
+<section class="tool-section" id="txtTool">
+<h3>TXT Tool</h3>
+
+<label for="txtInput">Enter Text</label>
+<textarea id="txtInput"></textarea>
+
+<label for="txtFilename">File Name</label>
+<input id="txtFilename" type="text" value="document">
+
+<button id="downloadTxt" type="button">Download TXT</button>
+</section>
+
+</section>
+
+<!-- ABOUT -->
+<section id="aboutPage" class="page" hidden>
+<h2>About Digital Blind Network</h2>
+<p>Accessible digital tools and services for blind and visually impaired users.</p>
+
+<h3>Developer</h3>
+<p>Developer: Dasharath Babu</p>
+<p>Junior Developer: Umakant Das</p>
+
+<h3>YouTube Channel</h3>
+<p>Digital Blind Network YouTube Channel</p>
+
+<h3>Community</h3>
+<p>WhatsApp Group: Invite Link Coming Soon</p>
+<p>Discord Server: Invite Link Coming Soon</p>
+
+<h3>Feedback</h3>
+<a href="mailto:dasharathbavu7847@gmail.com">Send Feedback Email</a>
+
+<h3>Privacy Policy</h3>
+<p>Your privacy matters. A complete privacy policy will be provided with the account system.</p>
+</section>
+
+</main>
+
+<footer>
+<p>Digital Blind Network</p>
+<p>Accessible Technology for Everyone</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
