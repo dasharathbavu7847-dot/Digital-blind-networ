@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital World for Blind Users</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>Digital World for Blind Users</h1>
+<p>Accessible Technology for Everyone</p>
+</header>
+
+<nav aria-label="Main Navigation">
+<button id="homeButton">Home</button>
+<button id="aboutButton">About</button>
+<button id="toolsButton">Tools</button>
+</nav>
+
+<main>
+
+<!-- HOME -->
+<section id="homeSection">
+<h2>Welcome to Digital World</h2>
+
+<p>
+Welcome to Digital World for Blind Users.
+Explore accessible technology and useful digital tools.
+</p>
+
+<h3>Our Features</h3>
+<ul>
+<li>Accessible Technology</li>
+<li>Audio Tools</li>
+<li>Image Upload and Preview</li>
+<li>Text to Speech</li>
+<li>Feedback and Support</li>
+</ul>
+</section>
+
+<!-- ABOUT -->
+<section id="aboutSection" hidden>
+<h2>About Us</h2>
+
+<p>
+Digital World for Blind Users is an accessible technology platform.
+</p>
+
+<p>
+Our mission is to provide useful digital tools,
+accessible resources and technology information
+for blind users.
+</p>
+
+<p>
+We believe technology should be accessible to everyone.
+</p>
+</section>
+
+<!-- TOOLS -->
+<section id="toolsSection" hidden>
+
+<h2>Accessible Tools</h2>
+
+<!-- Text to Speech -->
+<div class="tool-card">
+<h3>Text to Speech</h3>
+
+<label for="ttsText">Enter Text</label>
+<textarea id="ttsText"
+placeholder="Enter text to speak"></textarea>
+
+<button id="speakButton">Speak Text</button>
+<button id="stopSpeechButton">Stop Speech</button>
+<button id="exportTextButton">Export Text</button>
+</div>
+
+<!-- Image Upload -->
+<div class="tool-card">
+<h3>Image Upload</h3>
+
+<label for="imageUpload">Select Image</label>
+<input type="file" id="imageUpload"
+accept="image/*">
+
+<div id="imagePreviewArea">
+<img id="imagePreview" alt="Uploaded image preview" hidden>
+</div>
+
+<p id="imageStatus" role="status"></p>
+
+<button id="removeImageButton" disabled>
+Remove Image
+</button>
+</div>
+
+<!-- Audio Upload -->
+<div class="tool-card">
+<h3>Audio Tools</h3>
+
+<label for="audioUpload">Upload Audio</label>
+<input type="file" id="audioUpload"
+accept="audio/*">
+
+<audio id="audioPlayer" controls hidden></audio>
+
+<button id="downloadAudioButton" disabled>
+Download Audio
+</button>
+
+<button id="removeAudioButton" disabled>
+Remove Audio
+</button>
+</div>
+
+<!-- Speech to Text -->
+<div class="tool-card">
+<h3>Speech to Text</h3>
+
+<button id="startListeningButton">
+Start Listening
+</button>
+
+<button id="stopListeningButton">
+Stop Listening
+</button>
+
+<label for="speechResult">Speech Result</label>
+<textarea id="speechResult"
+placeholder="Speech recognition result"></textarea>
+
+<button id="exportSpeechButton">
+Export Speech Text
+</button>
+
+<p id="speechStatus" role="status"></p>
+</div>
+
+<!-- Feedback -->
+<div class="tool-card">
+<h3>Feedback and Support</h3>
+
+<p>
+Send your feedback, suggestions or questions by email.
+</p>
+
+<label for="feedbackMessage">Your Feedback</label>
+<textarea id="feedbackMessage"
+placeholder="Write your feedback here"></textarea>
+
+<button id="sendFeedbackButton">
+Send Feedback Email
+</button>
+</div>
+
+</section>
+
+</main>
+
+<footer>
+<p>Digital World for Blind Users</p>
+<p>Accessible Technology for Everyone</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
