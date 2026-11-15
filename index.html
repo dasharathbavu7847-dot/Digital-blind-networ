@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Digital Blind Network</title>
+
+    <meta name="description" content="Digital Blind Network - Accessible Digital Tools for Blind Users">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Digital Blind Network</h1>
+    <p>Accessible Technology for Everyone</p>
+</header>
+
+<nav aria-label="Main Navigation">
+    <button type="button" data-page="homePage">Home</button>
+    <button type="button" data-page="toolsPage">Tools</button>
+    <button type="button" data-page="aboutPage">About</button>
+</nav>
+
+<main>
+
+<!-- HOME PAGE -->
+<section id="homePage" class="page">
+
+    <h2>Welcome to Digital Blind Network</h2>
+
+    <p>
+        Accessible digital tools for blind and visually impaired users.
+    </p>
+
+    <p>
+        Explore image, audio, video, text and coding tools.
+    </p>
+
+    <button type="button" data-page="toolsPage">
+        Explore Tools
+    </button>
+
+</section>
+
+<!-- TOOLS PAGE -->
+<section id="toolsPage" class="page" hidden>
+
+    <h2>Accessible Digital Tools</h2>
+
+    <!-- IMAGE TOOL -->
+    <section id="imageTool" class="tool-section">
+        <h3>Image Tool</h3>
+
+        <h4>Image Resizer</h4>
+
+        <label for="resizeImageFile">Select Image</label>
+        <input type="file" id="resizeImageFile" accept="image/*">
+
+        <img id="resizeImagePreview" alt="Image Preview" hidden>
+
+        <label for="resizeWidth">Width</label>
+        <input type="number" id="resizeWidth" min="1">
+
+        <label for="resizeHeight">Height</label>
+        <input type="number" id="resizeHeight" min="1">
+
+        <label for="resizeFormat">Image Format</label>
+        <select id="resizeFormat">
+            <option value="image/png">PNG</option>
+            <option value="image/jpeg">JPEG</option>
+            <option value="image/webp">WEBP</option>
+        </select>
+
+        <button type="button" id="resizeImage">
+            Resize Image
+        </button>
+
+        <p id="resizeInfo" role="status"></p>
+
+        <a id="resizeDownload" hidden download="resized-image.png">
+            Download Resized Image
+        </a>
+
+        <hr>
+
+        <h4>Image Reduce</h4>
+
+        <label for="imageFile">Select Image</label>
+        <input type="file" id="imageFile" accept="image/*">
+
+        <img id="imagePreview" alt="Image Preview" hidden>
+
+        <label for="imageFormat">Format</label>
+        <select id="imageFormat">
+            <option value="image/jpeg">JPEG</option>
+            <option value="image/webp">WEBP</option>
+            <option value="image/png">PNG</option>
+        </select>
+
+        <label for="imageQuality">Image Quality</label>
+        <input type="range" id="imageQuality" min="10" max="100" value="80">
+
+        <output id="qualityValue">80</output>
+
+        <label for="imageMaxWidth">Maximum Width</label>
+        <input type="number" id="imageMaxWidth" min="1" value="1200">
+
+        <button type="button" id="reduceImage">
+            Reduce Image
+        </button>
+
+        <button type="button" id="removeImage">
+            Remove Image
+        </button>
+
+        <p id="imageSizeInfo" role="status"></p>
+
+        <a id="imageDownload" hidden download="reduced-image.jpg">
+            Download Reduced Image
+        </a>
+
+        <hr>
+
+        <h4>Passport Photo Maker</h4>
+
+        <label for="passportPhoto">Select Photo</label>
+        <input type="file" id="passportPhoto" accept="image/*">
+
+        <label for="passportSize">Photo Size</label>
+        <select id="passportSize">
+            <option value="35x45">35 x 45 mm</option>
+            <option value="2x2">2 x 2 inch</option>
+        </select>
+
+        <label for="passportBackground">Background Color</label>
+        <select id="passportBackground">
+            <option value="white">White</option>
+            <option value="blue">Blue</option>
+            <option value="lightgray">Light Gray</option>
+        </select>
+
+        <button type="button" id="makePassportPhoto">
+            Create Passport Photo
+        </button>
+
+        <a id="passportDownload" hidden download="passport-photo.png">
+            Download Passport Photo
+        </a>
+
+        <p id="passportStatus" role="status"></p>
+
+        <hr>
+
+        <h4>Image Text Remover</h4>
+
+        <label for="textRemoveImage">Select Image</label>
+        <input type="file" id="textRemoveImage" accept="image/*">
+
+        <button type="button" id="removeImageText">
+            Remove Text from Image
+        </button>
+
+        <p id="textRemoveStatus" role="status"></p>
+
+    </section>
+
+    <!-- AUDIO TOOL -->
+    <section id="audioTool" class="tool-section">
+
+        <h3>Audio Tool</h3>
+
+        <h4>Audio Editor</h4>
+
+        <label for="audioFile">Select Audio</label>
+        <input type="file" id="audioFile" accept="audio/*">
+
+        <audio id="audioPreview" controls></audio>
+
+        <label for="audioStart">Start Time</label>
+        <input type="number" id="audioStart" min="0" value="0">
+
+        <label for="audioEnd">End Time</label>
+        <input type="number" id="audioEnd" min="0">
+
+        <button type="button" id="trimAudio">
+            Trim Audio
+        </button>
+
+        <a id="audioDownload" hidden download="trimmed-audio">
+            Download Trimmed Audio
+        </a>
+
+        <hr>
+
+        <h4>Vocal Remover Tool</h4>
+
+        <button type="button" id="removeVocal">Remove Vocal</button>
+        <button type="button" id="removeMaleVocal">Male Vocal Remove</button>
+        <button type="button" id="removeFemaleVocal">Female Vocal Remove</button>
+        <button type="button" id="removeLeftChannel">Remove Left Channel</button>
+        <button type="button" id="removeRightChannel">Remove Right Channel</button>
+        <button type="button" id="removeInstrumental">Remove Instrumental</button>
+        <button type="button" id="separateVoice">Separate Voice</button>
+
+        <label for="voiceType">Voice Type</label>
+        <select id="voiceType">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <button type="button" id="playVocalPreview">
+            Play Vocal Preview
+        </button>
+
+        <button type="button" id="pauseVocalPreview">
+            Pause Vocal Preview
+        </button>
+
+        <a id="instrumentalDownload" hidden download="instrumental">
+            Download Instrumental
+        </a>
+
+        <a id="vocalDownload" hidden download="vocal">
+            Download Vocal
+        </a>
+
+        <a id="voiceDownload" hidden download="separated-voice">
+            Download Separated Voice
+        </a>
+
+        <p id="audioToolStatus" role="status"></p>
+
+    </section>
+
+    <!-- VIDEO TOOL -->
+    <section id="videoTool" class="tool-section">
+
+        <h3>Video Tool</h3>
+
+        <h4>Video Editor</h4>
+
+        <label for="videoFile">Select Video</label>
+        <input type="file" id="videoFile" accept="video/*">
+
+        <video id="videoPreview" controls></video>
+
+        <button type="button" id="rewindVideo">
+            Rewind 10 Seconds
+        </button>
+
+        <button type="button" id="forwardVideo">
+            Forward 10 Seconds
+        </button>
+
+        <label for="videoStart">Start Time</label>
+        <input type="number" id="videoStart" min="0" value="0">
+
+        <label for="videoEnd">End Time</label>
+        <input type="number" id="videoEnd" min="0">
+
+        <button type="button" id="trimVideo">
+            Trim Video
+        </button>
+
+        <a id="videoDownload" hidden download="trimmed-video">
+            Download Trimmed Video
+        </a>
+
+        <p id="videoToolStatus" role="status"></p>
+
+    </section>
+
+    <!-- TXT TOOL -->
+    <section id="txtTool" class="tool-section">
+
+        <h3>TXT Tool</h3>
+
+        <label for="txtInput">Enter Text</label>
+        <textarea id="txtInput"></textarea>
+
+        <label for="txtFilename">File Name</label>
+        <input type="text" id="txtFilename" value="document">
+
+        <button type="button" id="downloadTxt">
+            Download TXT
+        </button>
+
+        <button type="button" id="clearTxt">
+            Clear Text
+        </button>
+
+        <p id="txtStatus" role="status"></p>
+
+    </section>
+
+    <!-- CODE EDITOR -->
+    <section id="codeEditorTool" class="tool-section">
+
+        <h3>Accessible Code Editor</h3>
+
+        <label for="codeLanguage">Programming Language</label>
+
+        <select id="codeLanguage">
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="javascript">JavaScript</option>
+        </select>
+
+        <label for="codeInput">Code Editor</label>
+
+        <textarea
+            id="codeInput"
+            rows="15"
+            spellcheck="false"
+            autocapitalize="off"
+            autocomplete="off"
+            placeholder="Write your code here"
+        ></textarea>
+
+        <button type="button" id="saveCode">Save Code</button>
+        <button type="button" id="copyCode">Copy Code</button>
+        <button type="button" id="downloadCode">Download Code</button>
+        <button type="button" id="clearCode">Clear Code</button>
+
+        <hr>
+
+        <h4>Run Preview</h4>
+
+        <button type="button" id="runCode">Run Preview</button>
+        <button type="button" id="closePreview">Close Preview</button>
+
+        <p id="codeStatus" role="status"></p>
+
+        <iframe
+            id="codePreview"
+            title="Code Editor Preview"
+            sandbox="allow-scripts"
+            hidden
+        ></iframe>
+
+    </section>
+
+</section>
+
+<!-- ABOUT PAGE -->
+<section id="aboutPage" class="page" hidden>
+
+    <h2>About Us</h2>
+
+    <p>
+        Digital Blind Network provides accessible digital
+        tools and services for blind and visually impaired users.
+    </p>
+
+    <h3>Developer Information</h3>
+
+    <p>Developer: Dasharath Babu</p>
+    <p>Junior Developer: Umakant Das</p>
+
+    <h3>Community</h3>
+
+    <p>WhatsApp Group: Coming Soon</p>
+    <p>Discord Server: Coming Soon</p>
+
+    <h3>YouTube Channel</h3>
+
+    <p>Digital Blind Network</p>
+
+    <h3>Feedback</h3>
+
+    <a href="mailto:dasharathbavu7847@gmail.com">
+        Send Feedback
+    </a>
+
+    <h3>Privacy Policy</h3>
+
+    <p>
+        No account registration is required to explore
+        the accessible tools available on this website.
+    </p>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+
+    <p>Digital Blind Network</p>
+
+    <p>Accessible Technology for Everyone</p>
+
+    <p>Copyright &copy; 2026 Digital Blind Network</p>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+<script src="script.js"></script>
+
+</body>
+</html>
